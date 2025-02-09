@@ -1,3 +1,5 @@
+import { getDay } from 'date-fns';
+
 // this function will get only the current day data that we need for our web application
 export function handleData(data) {
   const handledData = {};
@@ -19,8 +21,37 @@ export function handleNextSevenDaysData(data) {
     const minMaxTemp = {};
     minMaxTemp.minTemp = data.days[i].tempmin;
     minMaxTemp.maxTemp = data.days[i].tempmax;
+    minMaxTemp.day = numberToDay(getDay(data.days[i].datetime)); // get the day of the week
     handledNextSevenDaysData[i] = minMaxTemp;
   }
 
   return handledNextSevenDaysData;
+}
+
+function numberToDay(num) {
+  let day;
+  switch (num) {
+    case 0:
+      day = 'Sunday';
+      break;
+    case 1:
+      day = 'Monday';
+      break;
+    case 2:
+      day = 'Tuesday';
+      break;
+    case 3:
+      day = 'Wednesday';
+      break;
+    case 4:
+      day = 'Thursday';
+      break;
+    case 5:
+      day = 'Friday';
+      break;
+    case 6:
+      day = 'Saturday';
+      break;
+  }
+  return day;
 }
