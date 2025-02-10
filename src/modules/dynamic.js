@@ -10,7 +10,7 @@ export function renderDynamic(currentDay, nextSevenDays) {
 
   const currentTemp = document.createElement('p');
   currentTemp.classList.add('current-temp');
-  currentTemp.textContent = currentDay.temp;
+  currentTemp.textContent = currentDay.temp.join('');
   container.appendChild(currentTemp);
 
   const weatherCondition = document.createElement('p');
@@ -22,13 +22,13 @@ export function renderDynamic(currentDay, nextSevenDays) {
   tempContainer.classList.add('temp-details');
 
   const currentMaxTemp = document.createElement('span');
-  currentMaxTemp.textContent = `Max: ${currentDay.maxTemp}`;
+  currentMaxTemp.textContent = `Max: ${currentDay.maxTemp.join('')}`;
 
   const currentMinTemp = document.createElement('span');
-  currentMinTemp.textContent = `Min: ${currentDay.minTemp}`;
+  currentMinTemp.textContent = `Min: ${currentDay.minTemp.join('')}`;
 
   const currentFeelsLike = document.createElement('span');
-  currentFeelsLike.textContent = `Feels like: ${currentDay.feelsLike}`;
+  currentFeelsLike.textContent = `Feels like: ${currentDay.feelsLike.join('')}`;
 
   tempContainer.append(currentMaxTemp, currentMinTemp, currentFeelsLike);
   container.appendChild(tempContainer);
@@ -46,7 +46,9 @@ export function renderDynamic(currentDay, nextSevenDays) {
     nextDayTemp.classList.add('next-day-temp');
 
     nextDayName.textContent = nextSevenDays[key].day;
-    nextDayTemp.textContent = `Max: ${nextSevenDays[key].maxTemp} Min: ${nextSevenDays[key].minTemp}`;
+    nextDayTemp.textContent = `Max: ${nextSevenDays[key].maxTemp.join(
+      ''
+    )} Min: ${nextSevenDays[key].minTemp.join('')}`;
 
     nextDayItem.append(nextDayName, nextDayTemp);
     nextSevenDaysContainer.appendChild(nextDayItem);

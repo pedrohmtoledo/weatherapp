@@ -4,10 +4,12 @@ import { getDay } from 'date-fns';
 export function handleData(data) {
   const handledData = {};
   handledData.name = data.address;
-  handledData.temp = data.currentConditions.temp;
-  handledData.feelsLike = data.currentConditions.feelslike;
-  handledData.minTemp = data.days['0'].tempmin;
-  handledData.maxTemp = data.days['0'].tempmax;
+  handledData.temp = getTemperatureFormat(data.currentConditions.temp);
+  handledData.feelsLike = getTemperatureFormat(
+    data.currentConditions.feelslike
+  );
+  handledData.minTemp = getTemperatureFormat(data.days['0'].tempmin);
+  handledData.maxTemp = getTemperatureFormat(data.days['0'].tempmax);
   handledData.condition = data.currentConditions.conditions;
   return handledData;
 }
@@ -19,8 +21,8 @@ export function handleNextSevenDaysData(data) {
   for (let i = 1; i <= days; i++) {
     // it starts at 1 because the days object number 0 is from the current day, and the current day is handled in the function above
     const minMaxTemp = {};
-    minMaxTemp.minTemp = data.days[i].tempmin;
-    minMaxTemp.maxTemp = data.days[i].tempmax;
+    minMaxTemp.minTemp = getTemperatureFormat(data.days[i].tempmin);
+    minMaxTemp.maxTemp = getTemperatureFormat(data.days[i].tempmax);
     minMaxTemp.day = numberToDay(getDay(data.days[i].datetime)); // get the day of the week
     handledNextSevenDaysData[i] = minMaxTemp;
   }
@@ -54,4 +56,18 @@ function numberToDay(num) {
       break;
   }
   return day;
+}
+
+function getTemperatureFormat(temp) {
+  let temperature = 0;
+  let symbol;
+  const format = JSON.parse(localStorage.getItem('temp'));
+  if (format === 'celcius') {
+    temperature = Math.round(((temp - 32) * 5) / 9);
+    symbol = '°C';
+  } else {
+    temperature = temp;
+    symbol = '°F';
+  }
+  return [temperature, symbol];
 }

@@ -1,6 +1,12 @@
 export function renderStatic() {
   const body = document.querySelector('body');
   const staticContent = `
+      <button id="unit-toggle" class="switch-button">
+        <span class="switch-slider"></span>
+        <span class="switch-text switch-c">°C</span>
+        <span class="switch-text switch-f">°F</span>
+      </button>
+
       <div class="container">
       <h1>Weather Forecast</h1>
       <form>
@@ -10,7 +16,7 @@ export function renderStatic() {
             <input type="text" id="city" placeholder="Choose city" required />  
             <label for="city" class="tooltip">test</label> 
         </div>
-        <button type="button" id="submit-button">Search</button>
+        <button id="submit-button">Search</button>
         </div>
       </form>
       
