@@ -1,3 +1,4 @@
+import { getIconSource } from './icons';
 export function renderDynamic(currentDay, nextSevenDays) {
   const container = document.querySelector('.weather-container');
   container.classList.remove('hidden');
@@ -7,6 +8,12 @@ export function renderDynamic(currentDay, nextSevenDays) {
   name.classList.add('city-name');
   name.textContent = currentDay.name;
   container.appendChild(name);
+
+  const icon = document.createElement('img');
+  icon.classList.add('day-icon');
+  icon.src = getIconSource(currentDay.icon);
+  console.log(icon);
+  container.appendChild(icon);
 
   const currentTemp = document.createElement('p');
   currentTemp.classList.add('current-temp');
@@ -40,6 +47,10 @@ export function renderDynamic(currentDay, nextSevenDays) {
     const nextDayItem = document.createElement('div');
     nextDayItem.classList.add('next-day-item');
 
+    const icon = document.createElement('img');
+    icon.classList.add('seven-days-icon');
+    icon.src = getIconSource(nextSevenDays[key].icon);
+
     const nextDayName = document.createElement('p');
     nextDayName.classList.add('next-day-name');
     const nextDayTemp = document.createElement('p');
@@ -50,7 +61,7 @@ export function renderDynamic(currentDay, nextSevenDays) {
       ''
     )} Min: ${nextSevenDays[key].minTemp.join('')}`;
 
-    nextDayItem.append(nextDayName, nextDayTemp);
+    nextDayItem.append(icon, nextDayName, nextDayTemp);
     nextSevenDaysContainer.appendChild(nextDayItem);
   }
 

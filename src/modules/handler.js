@@ -11,6 +11,7 @@ export function handleData(data) {
   handledData.minTemp = getTemperatureFormat(data.days['0'].tempmin);
   handledData.maxTemp = getTemperatureFormat(data.days['0'].tempmax);
   handledData.condition = data.currentConditions.conditions;
+  handledData.icon = data.currentConditions.icon;
   return handledData;
 }
 
@@ -24,6 +25,7 @@ export function handleNextSevenDaysData(data) {
     minMaxTemp.minTemp = getTemperatureFormat(data.days[i].tempmin);
     minMaxTemp.maxTemp = getTemperatureFormat(data.days[i].tempmax);
     minMaxTemp.day = numberToDay(getDay(data.days[i].datetime)); // get the day of the week
+    minMaxTemp.icon = data.days[i].icon;
     handledNextSevenDaysData[i] = minMaxTemp;
   }
 
@@ -66,7 +68,7 @@ function getTemperatureFormat(temp) {
     temperature = Math.round(((temp - 32) * 5) / 9);
     symbol = '°C';
   } else {
-    temperature = temp;
+    temperature = Math.round(temp);
     symbol = '°F';
   }
   return [temperature, symbol];

@@ -10,13 +10,13 @@ export function temperatureToggle() {
     celsiusText.style.opacity = '1';
     fahrenheitText.style.opacity = '0';
     temp = 'celcius';
-    return temp;
   } else {
     slider.style.transform = 'translateX(36px)';
     slider.style.background = '#ff6384';
     celsiusText.style.opacity = '0';
     fahrenheitText.style.opacity = '1';
     temp = 'farenheit';
-    return temp;
   }
+  localStorage.setItem('temp', JSON.stringify(temp));
+  return temp;
 }

@@ -21,7 +21,8 @@ export async function getDataAndDisplay() {
     }
 
     const cityData = await city.json();
-    console.log(cityData.currentConditions.icon);
+    console.log(cityData);
+
     displayCityData(cityData); // call display function to display the data from search city on screen
 
     return cityData;
