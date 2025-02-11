@@ -141,7 +141,7 @@ input:focus {
   left: 4px;
   width: 28px;
   height: 28px;
-  background: #6c63ff;
+  background: #ff6384;
   border-radius: 50%;
   transition: transform 0.3s ease-in-out, background 0.3s;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -156,12 +156,12 @@ input:focus {
   transition: opacity 0.3s ease-in-out;
 }
 
-.switch-c {
+.switch-f {
   left: 10px;
   opacity: 1;
 }
 
-.switch-f {
+.switch-c {
   right: 10px;
   opacity: 0;
 }
