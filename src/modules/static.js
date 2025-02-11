@@ -3,8 +3,8 @@ export function renderStatic() {
   const staticContent = `
       <button id="unit-toggle" class="switch-button">
         <span class="switch-slider"></span>
-        <span class="switch-text switch-c">°C</span>
         <span class="switch-text switch-f">°F</span>
+        <span class="switch-text switch-c">°C</span>
       </button>
 
       <div class="container">

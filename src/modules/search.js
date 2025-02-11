@@ -9,7 +9,7 @@ export function setCitytoLocalStorage() {
 // fetch city from visual crossing api
 export async function getDataAndDisplay() {
   const name = JSON.parse(localStorage.getItem('city'));
-  console.log(name);
+
   try {
     const city = await fetch(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${name}?key=JFSVBDTHUDQT4CEEBXF8K56EY`,
@@ -21,7 +21,6 @@ export async function getDataAndDisplay() {
     }
 
     const cityData = await city.json();
-    console.log(cityData);
 
     displayCityData(cityData); // call display function to display the data from search city on screen
 

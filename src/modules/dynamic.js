@@ -12,7 +12,7 @@ export function renderDynamic(currentDay, nextSevenDays) {
   const icon = document.createElement('img');
   icon.classList.add('day-icon');
   icon.src = getIconSource(currentDay.icon);
-  console.log(icon);
+
   container.appendChild(icon);
 
   const currentTemp = document.createElement('p');

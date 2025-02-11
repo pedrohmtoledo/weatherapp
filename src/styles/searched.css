@@ -2,11 +2,10 @@
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(20px);
   border-radius: 30px;
-  padding: 3.5rem;
+  padding: 1.5rem;
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.25);
   text-align: center;
-  width: 90%;
-  max-width: 900px;
+  max-width: 150rem;
   margin: auto;
   margin-top: 3rem;
 }
@@ -58,11 +57,13 @@
 
 .next-seven-days-container {
   display: flex;
+  min-height: 15rem;
+  min-width: 30rem;
   justify-content: space-between;
   gap: 1.5rem;
   margin-top: 2rem;
   overflow-x: auto;
-  padding-bottom: 1rem;
+  padding: 5rem;
 }
 
 .next-day-item {
@@ -98,4 +99,13 @@
 
 .hidden {
   display: none;
+}
+.day-icon {
+  width: 5rem;
+  height: 5rem;
+}
+
+.seven-days-icon {
+  width: 3rem;
+  height: 3rem;
 }
