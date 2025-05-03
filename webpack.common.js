@@ -7,22 +7,27 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/template.html",
+      template: './src/template.html',
     }),
   ],
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.html$/i,
-        loader: "html-loader",
+        loader: 'html-loader',
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
     ],
   },
@@ -31,5 +36,4 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
-  
 };
