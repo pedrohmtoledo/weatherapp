@@ -156,12 +156,12 @@ input:focus {
   transition: opacity 0.3s ease-in-out;
 }
 
-.switch-fa {
+.switch-f {
   left: 10px;
   opacity: 1;
 }
 
-.switch-ce {
+.switch-c {
   right: 10px;
   opacity: 0;
 }
