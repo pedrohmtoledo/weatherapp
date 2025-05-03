@@ -5,6 +5,7 @@ import { setCitytoLocalStorage, getDataAndDisplay } from './modules/search.js';
 import { temperatureToggle } from './modules/tempformat.js';
 
 renderStatic();
+localStorage.setItem('temp', JSON.stringify('farenheit'));
 
 const searchButton = document.querySelector('#submit-button');
 const toggleButton = document.getElementById('unit-toggle');

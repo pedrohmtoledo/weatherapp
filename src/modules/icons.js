@@ -1,7 +1,7 @@
 export function getIconSource(name) {
   const importAll = (require) =>
     require.keys().reduce((acc, next) => {
-      acc[next.replace('./', '')] = require(next).default;
+      acc[next.replace('./', '')] = require(next);
       return acc;
     }, {});
 

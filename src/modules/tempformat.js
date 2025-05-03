@@ -2,7 +2,7 @@ export function temperatureToggle() {
   const slider = document.querySelector('.switch-slider');
   const celsiusText = document.querySelector('.switch-c');
   const fahrenheitText = document.querySelector('.switch-f');
-  let temp;
+  let temp = 'farenheit';
 
   if (getComputedStyle(fahrenheitText).opacity === '0') {
     slider.style.transform = 'translateX(0px)';
